@@ -2,6 +2,7 @@
 
 **Native Telegram checklists (To-Do lists) for AI agents** - create, read, append and toggle real interactive checklist messages in chats and forum topics through a Telethon user session.
 
+[![CI](https://github.com/johnsje183/hermes-telegram-checklist/actions/workflows/ci.yml/badge.svg)](https://github.com/johnsje183/hermes-telegram-checklist/actions/workflows/ci.yml)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)
 ![Hermes skill](https://img.shields.io/badge/Hermes-skill-8A2BE2.svg)
