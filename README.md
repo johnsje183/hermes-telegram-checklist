@@ -181,7 +181,13 @@ Rebuild / roll-over: native To-Do items are **not text-editable** after creation
 
 ## Using it as a Hermes skill
 
-Drop the folder into your agent's skills directory (for Hermes: a folder like `skills/telegram-checklist/` containing `SKILL.md` and `telethon_checklist.py`). [`SKILL.md`](SKILL.md) is the agent-facing contract: trigger phrases ("make a Telegram checklist", "collect the tasks from this chat into a checklist", "tick item 2"), the two create modes (dictated vs researched), the plan.json research contract with per-task source evidence, semantic dedup rules, the roll-over workflow, and verification duties. The script is the enforcement layer: whatever the agent gets wrong, the CLI refuses fail-closed with an honest JSON error.
+One-line install with the [skills.sh](https://skills.sh) CLI (Claude Code and other Agent-Skills-compatible agents):
+
+```bash
+npx skills add johnsje183/hermes-telegram-checklist
+```
+
+Or drop the folder into your agent's skills directory (for Hermes: a folder like `skills/telegram-checklist/` containing `SKILL.md` and `telethon_checklist.py`). [`SKILL.md`](SKILL.md) is the agent-facing contract: trigger phrases ("make a Telegram checklist", "collect the tasks from this chat into a checklist", "tick item 2"), the two create modes (dictated vs researched), the plan.json research contract with per-task source evidence, semantic dedup rules, the roll-over workflow, and verification duties. The script is the enforcement layer: whatever the agent gets wrong, the CLI refuses fail-closed with an honest JSON error.
 
 ## Security and responsible use
 
