@@ -19,7 +19,7 @@ A single-file Python CLI that manages **native Telegram To-Do lists** - the real
 - **rebuild** a list through a documented roll-over workflow
 - validate an agent-researched **plan** (`plan.json`) offline before anything is written
 
-It ships as a skill for the [Hermes agent](https://nousresearch.com) with a [`SKILL.md`](SKILL.md) that drives the agent, but the script has no framework dependencies: one file, stdlib + Telethon, strict JSON in/out - any agent harness or plain shell can use it.
+It ships as a skill for the [Hermes agent](https://nousresearch.com) by [Nous Research](https://github.com/NousResearch), with a [`SKILL.md`](SKILL.md) that drives the agent, but the script has no framework dependencies: one file, stdlib + Telethon, strict JSON in/out - any agent harness or plain shell can use it.
 
 ## Why it exists: the Bot API can't do this
 
