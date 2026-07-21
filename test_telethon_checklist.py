@@ -1475,6 +1475,12 @@ class TestModuleBootstrap(unittest.TestCase):
     def test_session_env_alone_rescues_bootstrap(self):
         """TELETHON_SESSION without any resolvable home must be enough for the
         offline paths - the error hint promises exactly that."""
+        # fresh subprocess, so the in-process stub does not apply: the script
+        # must get past its real telethon import before the offline path exists
+        probe = subprocess.run([sys.executable, "-c", "import telethon"],
+                               capture_output=True)
+        if probe.returncode != 0:
+            self.skipTest("real telethon not installed")
         env = {k: v for k, v in os.environ.items()
                if k not in ("HOME", "USERPROFILE", "HOMEDRIVE", "HOMEPATH",
                             "HERMES_HOME")}

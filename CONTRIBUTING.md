@@ -11,7 +11,7 @@ Thanks for taking a look. This project is deliberately small: one stdlib-only sc
 
 ## Running the tests
 
-The offline suite needs no network, no credentials, and not even Telethon (a stub is injected; the real-Telethon integration test skips itself when the library is absent):
+The offline suite needs no network, no credentials, and not even Telethon (a stub is injected; the few subprocess tests that need the real library skip themselves when it is absent):
 
 ```bash
 python3 test_telethon_checklist.py
