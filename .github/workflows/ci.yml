@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: "3.9"
+            telethon: false
+          - python-version: "3.11"
+            telethon: false
+          - python-version: "3.13"
+            telethon: false
+          # one leg with the real library: the integration test stops skipping
+          # and verifies the exact MTProto request signatures
+          - python-version: "3.12"
+            telethon: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile
+        run: python -m py_compile telethon_checklist.py test_telethon_checklist.py
+      - name: Install Telethon (integration leg only)
+        if: ${{ matrix.telethon }}
+        run: pip install "telethon>=1.44"
+      - name: Offline test suite
+        run: python test_telethon_checklist.py
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Critical lint (syntax errors and undefined names)
+        run: ruff check --select E9,F63,F7,F82 telethon_checklist.py test_telethon_checklist.py

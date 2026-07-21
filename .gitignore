@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ruff_cache/
+
+# Telegram sessions and credentials - never commit these
+*.session
+*.session-journal
+.env
+*.env
+*.key
+*.pem

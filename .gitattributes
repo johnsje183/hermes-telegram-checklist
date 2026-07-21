@@ -1,0 +1,4 @@
+# Deterministic line endings on every platform: text files are LF in the repo
+# and LF on checkout, so file hashes stay stable across clones.
+* text=auto eol=lf
+*.png binary
